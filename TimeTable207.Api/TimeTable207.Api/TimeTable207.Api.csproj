@@ -11,10 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\TimeTable207.Context\TimeTable207.Context.csproj" />
     <ProjectReference Include="..\TimeTable207.Repositories\TimeTable207.Repositories.csproj" />
     <ProjectReference Include="..\TimeTable207.Services\TimeTable207.Services.csproj" />
