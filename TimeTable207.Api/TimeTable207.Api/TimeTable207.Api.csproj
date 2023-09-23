@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TimeTable207.Context\TimeTable207.Context.csproj" />
+    <ProjectReference Include="..\TimeTable207.Repositories\TimeTable207.Repositories.csproj" />
+    <ProjectReference Include="..\TimeTable207.Services\TimeTable207.Services.csproj" />
+  </ItemGroup>
+
+</Project>
