@@ -6,7 +6,7 @@ namespace TimeTable207.Api.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class DisciplineController: ControllerBase
+    public class DisciplineController : ControllerBase
     {
         private readonly IDisciplineService disciplineService;
 

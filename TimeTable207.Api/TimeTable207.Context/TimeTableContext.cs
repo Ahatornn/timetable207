@@ -3,16 +3,16 @@ using TimeTable207.Context.Contracts.Models;
 
 namespace TimeTable207.Context
 {
-    internal class TimeTableContext : ITimeTableContext
+    public class TimeTableContext : ITimeTableContext
     {
-        private static ICollection<Discipline> disciplines;
-        private static ICollection<Document> documents;
-        private static ICollection<Employee> employees;
-        private static ICollection<Group> groups;
-        private static ICollection<Person> persons;
-        private static ICollection<TimeTableItem> timeTableItems;
+        private ICollection<Discipline> disciplines;
+        private ICollection<Document> documents;
+        private ICollection<Employee> employees;
+        private ICollection<Group> groups;
+        private ICollection<Person> persons;
+        private ICollection<TimeTableItem> timeTableItems;
 
-        static TimeTableContext()
+        public TimeTableContext()
         {
             disciplines = new HashSet<Discipline>();
             documents = new HashSet<Document>();
@@ -20,6 +20,7 @@ namespace TimeTable207.Context
             groups = new HashSet<Group>();
             persons = new HashSet<Person>();
             timeTableItems = new HashSet<TimeTableItem>();
+            Seed();
         }
 
         ICollection<Discipline> ITimeTableContext.Disciplines => disciplines;
@@ -33,5 +34,15 @@ namespace TimeTable207.Context
         ICollection<Person> ITimeTableContext.Persons => persons;
 
         ICollection<TimeTableItem> ITimeTableContext.TimeTableItems => timeTableItems;
+
+        private void Seed()
+        {
+            disciplines.Add(new Discipline
+            {
+                Id = Guid.NewGuid(),
+                Name = $"Name{Guid.NewGuid():N}",
+                Description = $"Description{Guid.NewGuid():N}",
+            });
+        }
     }
 }

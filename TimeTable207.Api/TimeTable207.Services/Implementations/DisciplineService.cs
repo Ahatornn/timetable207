@@ -4,7 +4,7 @@ using TimeTable207.Services.Contracts.Models;
 
 namespace TimeTable207.Services.Implementations
 {
-    internal class DisciplineService: IDisciplineService
+    public class DisciplineService : IDisciplineService
     {
         private readonly IDisciplineReadRepository repository;
 
