@@ -3,7 +3,7 @@ using TimeTable207.Context.Contracts.Models;
 
 namespace TimeTable207.Context
 {
-    public class TimeTableContext : ITimeTableContext
+    public class TimeTableContext: ITimeTableContext
     {
         private ICollection<Discipline> disciplines;
         private ICollection<Document> documents;
