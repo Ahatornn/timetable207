@@ -43,6 +43,18 @@ namespace TimeTable207.Context
                 Name = $"Name{Guid.NewGuid():N}",
                 Description = $"Description{Guid.NewGuid():N}",
             });
+            groups.Add(new Group
+            {
+                Id = Guid.NewGuid(),
+                Name = $"Name{Guid.NewGuid():N}",
+                Description = $"Description{Guid.NewGuid():N}",
+            });
+            groups.Add(new Group
+            {
+                Id = Guid.NewGuid(),
+                Name = $"Name{Guid.NewGuid():N}",
+                Description = $"Description{Guid.NewGuid():N}",
+            });
         }
     }
 }

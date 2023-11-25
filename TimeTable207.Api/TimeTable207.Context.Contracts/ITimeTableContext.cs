@@ -15,5 +15,7 @@ namespace TimeTable207.Context.Contracts
         ICollection<Person> Persons { get; }
 
         ICollection<TimeTableItem> TimeTableItems { get; }
+
+
     }
 }
