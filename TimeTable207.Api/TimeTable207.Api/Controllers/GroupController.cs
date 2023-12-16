@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TimeTable207.Api.Models;
-using TimeTable207.Context;
 using TimeTable207.Context.Contracts;
 using TimeTable207.Context.Contracts.Models;
 

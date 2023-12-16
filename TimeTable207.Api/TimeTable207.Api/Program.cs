@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using TimeTable207.Context;
 using TimeTable207.Context.Contracts;
 using TimeTable207.Repositories.Contracts.Disciplines;
@@ -15,7 +16,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IDisciplineService, DisciplineService>();
 builder.Services.AddScoped<IDisciplineReadRepository, DisciplineReadRepository>();
-builder.Services.AddSingleton<ITimeTableContext, TimeTableContext>();
+
+var conString = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContextFactory<TimeTableContext>(x => x.UseSqlServer(conString), ServiceLifetime.Scoped);
+builder.Services.AddScoped<ITimeTableContext>(x => x.GetRequiredService<TimeTableContext>());
 
 var app = builder.Build();
 

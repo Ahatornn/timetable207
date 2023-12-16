@@ -1,60 +1,38 @@
-﻿using TimeTable207.Context.Contracts;
+﻿using Microsoft.EntityFrameworkCore;
+using TimeTable207.Context.Contracts;
 using TimeTable207.Context.Contracts.Models;
 
 namespace TimeTable207.Context
 {
-    public class TimeTableContext: ITimeTableContext
+    /// <summary>
+    /// Контекст работы с БД
+    /// </summary>
+    /// <remarks>
+    /// 1) dotnet tool install --global dotnet-ef
+    /// 2) dotnet tool update --global dotnet-ef
+    /// 3) dotnet ef migrations add [name] --project TimeTable207.Context\TimeTable207.Context.csproj
+    /// 4) dotnet ef database update --project TimeTable207.Context\TimeTable207.Context.csproj
+    /// </remarks>
+    public class TimeTableContext : DbContext, ITimeTableContext
     {
-        private ICollection<Discipline> disciplines;
-        private ICollection<Document> documents;
-        private ICollection<Employee> employees;
-        private ICollection<Group> groups;
-        private ICollection<Person> persons;
-        private ICollection<TimeTableItem> timeTableItems;
-
-        public TimeTableContext()
+        /// <summary>
+        /// ctor
+        /// </summary>
+        public TimeTableContext(DbContextOptions<TimeTableContext> options)
+            : base(options)
         {
-            disciplines = new HashSet<Discipline>();
-            documents = new HashSet<Document>();
-            employees = new HashSet<Employee>();
-            groups = new HashSet<Group>();
-            persons = new HashSet<Person>();
-            timeTableItems = new HashSet<TimeTableItem>();
-            Seed();
         }
 
-        ICollection<Discipline> ITimeTableContext.Disciplines => disciplines;
+        public DbSet<Discipline> Disciplines { get; set; }
 
-        ICollection<Document> ITimeTableContext.Documents => documents;
+        public DbSet<Document> Documents { get; set; }
 
-        ICollection<Employee> ITimeTableContext.Employees => employees;
+        public DbSet<Employee> Employees { get; set; }
 
-        ICollection<Group> ITimeTableContext.Groups => groups;
+        public DbSet<Group> Groups { get; set; }
 
-        ICollection<Person> ITimeTableContext.Persons => persons;
+        public DbSet<Person> Persons { get; set; }
 
-        ICollection<TimeTableItem> ITimeTableContext.TimeTableItems => timeTableItems;
-
-        private void Seed()
-        {
-            disciplines.Add(new Discipline
-            {
-                Id = Guid.NewGuid(),
-                Name = $"Name{Guid.NewGuid():N}",
-                Description = $"Description{Guid.NewGuid():N}",
-            });
-            groups.Add(new Group
-            {
-                Id = Guid.NewGuid(),
-                Name = $"Name{Guid.NewGuid():N}",
-                Description = $"Description{Guid.NewGuid():N}",
-            });
-            groups.Add(new Group
-            {
-                Id = Guid.NewGuid(),
-                Name = $"Name{Guid.NewGuid():N}",
-                Description = $"Description{Guid.NewGuid():N}",
-            });
-        }
+        public DbSet<TimeTableItem> TimeTableItems { get; set; }
     }
 }

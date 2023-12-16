@@ -1,21 +1,20 @@
-﻿using TimeTable207.Context.Contracts.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using TimeTable207.Context.Contracts.Models;
 
 namespace TimeTable207.Context.Contracts
 {
     public interface ITimeTableContext
     {
-        ICollection<Discipline> Disciplines { get; }
+        DbSet<Discipline> Disciplines { get; }
 
-        ICollection<Document> Documents { get; }
+        DbSet<Document> Documents { get; }
 
-        ICollection<Employee> Employees { get; }
+        DbSet<Employee> Employees { get; }
 
-        ICollection<Group> Groups { get; }
+        DbSet<Group> Groups { get; }
 
-        ICollection<Person> Persons { get; }
+        DbSet<Person> Persons { get; }
 
-        ICollection<TimeTableItem> TimeTableItems { get; }
-
-
+        DbSet<TimeTableItem> TimeTableItems { get; }
     }
 }
